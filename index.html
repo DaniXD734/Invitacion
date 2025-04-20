@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: #fffbe6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #444;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      position: relative;
+      height: 100px;
+    }
+
+    #yesBtn, #noBtn {
+      font-size: 1rem;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: absolute;
+    }
+
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+      left: 50%;
+      transform: translateX(-60px);
+      top: 0;
+      z-index: 1;
+    }
+
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+      left: 50%;
+      transform: translateX(60px);
+      top: 0;
+      z-index: 2;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      #yesBtn, #noBtn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Imagen arriba -->
+  <img src="Imagen.jpeg" alt="Comida deliciosa">
+
+  <!-- Texto de invitación -->
+  <h1>¿Aceptan ir a comer? 🍽️😋</h1>
+
+  <!-- Botones -->
+  <div class="buttons">
+    <button id="yesBtn">Sí</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+
+    noBtn.addEventListener('click', () => {
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+      const newX = Math.floor(Math.random() * maxX);
+      const newY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+    });
+
+    yesBtn.addEventListener('click', () => {
+      alert('¡Yay! ¡Te invito! 😄🍕');
+    });
+  </script>
+
+</body>
+</html>
